@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity(), IHomeView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        presenter.getCityWeather("赣州")
+//        presenter.getCityWeather("赣州")
+        presenter.searchCity("杨")
     }
 }

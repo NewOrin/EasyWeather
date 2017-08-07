@@ -45,4 +45,18 @@ public class HomePresenter {
             }
         });
     }
+
+    public void searchCity(String city) {
+        mHomeModel.searchCity(city, new Callback<H5Weather>() {
+            @Override
+            public void onResponse(Call<H5Weather> call, Response<H5Weather> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<H5Weather> call, Throwable t) {
+
+            }
+        });
+    }
 }

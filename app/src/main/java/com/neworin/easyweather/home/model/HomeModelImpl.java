@@ -20,4 +20,10 @@ public class HomeModelImpl implements IHomeModel {
         Call<H5Weather> call = ServiceGenerator.Companion.createService().getByCityName(city);
         call.enqueue(callback);
     }
+
+    @Override
+    public void searchCity(String city, Callback<H5Weather> callback) {
+        Call<H5Weather> call = ServiceGenerator.Companion.createService().searchCity(city);
+        call.enqueue(callback);
+    }
 }

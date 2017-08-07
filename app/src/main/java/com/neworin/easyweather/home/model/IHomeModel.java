@@ -12,4 +12,6 @@ import retrofit2.Callback;
 public interface IHomeModel {
 
     void getWeatherByCityName(String city, Callback<H5Weather> callback);
+
+    void searchCity(String city, Callback<H5Weather> callback);
 }
