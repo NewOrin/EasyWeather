@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
-        android:initialLayout="@layout/activity_main"
+                    android:initialLayout="@layout/weather_widget_layout"
                     android:minHeight="200dp"
                     android:minWidth="50dp"
                     android:previewImage="@mipmap/ic_launcher"
