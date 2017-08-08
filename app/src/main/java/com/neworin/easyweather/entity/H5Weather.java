@@ -8,5 +8,5 @@ import java.util.List;
  * Description:
  */
 public class H5Weather {
-    public List<Weather> mWeatherList;
+    public List<Weather> HeWeather5;
 }

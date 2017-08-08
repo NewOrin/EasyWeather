@@ -21,8 +21,8 @@ open class WeatherWidgetProvider : AppWidgetProvider() {
 
         val remoteViews = RemoteViews(context?.packageName, R.layout.activity_main)
         val intent = Intent(CLICK_ACTION)
-        val pendingIntent = PendingIntent.getBroadcast(context, R.id.mainImage, intent, PendingIntent.FLAG_UPDATE_CURRENT)
-        remoteViews.setOnClickPendingIntent(R.id.mainImage, pendingIntent)
+        val pendingIntent = PendingIntent.getBroadcast(context, R.id.widget_image, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+        remoteViews.setOnClickPendingIntent(R.id.widget_image, pendingIntent)
         for (widgetId in appWidgetIds!!) {
             appWidgetManager?.updateAppWidget(widgetId, remoteViews)
         }

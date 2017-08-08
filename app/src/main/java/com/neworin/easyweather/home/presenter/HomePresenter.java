@@ -36,7 +36,7 @@ public class HomePresenter {
         mHomeModel.getWeatherByCityName(city, new Callback<H5Weather>() {
             @Override
             public void onResponse(Call<H5Weather> call, Response<H5Weather> response) {
-                Log.d("neworin", "获取成功: " + response.body());
+                mHomeView.refreshData(response.body().HeWeather5);
             }
 
             @Override
