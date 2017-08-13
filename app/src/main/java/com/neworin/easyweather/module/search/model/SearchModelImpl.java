@@ -1,12 +1,10 @@
-package com.neworin.easyweather.home.model;
+package com.neworin.easyweather.module.search.model;
 
 import com.neworin.easyweather.entity.H5Weather;
-import com.neworin.easyweather.entity.Weather;
 import com.neworin.easyweather.http.ServiceGenerator;
+import com.neworin.easyweather.module.home.model.*;
 
 import org.jetbrains.annotations.NotNull;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -16,7 +14,7 @@ import retrofit2.Callback;
  * Email: neworin@163.com
  * Description:
  */
-public class HomeModelImpl implements IHomeModel {
+public class SearchModelImpl implements com.neworin.easyweather.module.home.model.IHomeModel {
 
     @Override
     public void getWeatherByCityName(@NotNull String city, Callback<H5Weather> callback) {

@@ -1,9 +1,6 @@
-package com.neworin.easyweather.home.model;
+package com.neworin.easyweather.module.home.model;
 
 import com.neworin.easyweather.entity.H5Weather;
-import com.neworin.easyweather.entity.Weather;
-
-import java.util.List;
 
 import retrofit2.Callback;
 

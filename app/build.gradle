@@ -21,7 +21,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    dataBinding {
+        dataBinding {
         enabled = true
     }
 }
@@ -40,6 +40,9 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
     compile 'com.orhanobut:logger:2.1.1'
-    kapt 'com.android.databinding:compiler:2.3.3'
+    kapt 'com.android.databinding:compiler:$android_plugin_version'
     implementation 'com.alibaba:fastjson:1.2.35'
+}
+kapt {
+    generateStubs = true
 }

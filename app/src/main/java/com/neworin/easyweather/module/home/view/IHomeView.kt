@@ -1,4 +1,4 @@
-package com.neworin.easyweather.home.view
+package com.neworin.easyweather.module.home.view
 
 import com.neworin.easyweather.entity.Weather
 

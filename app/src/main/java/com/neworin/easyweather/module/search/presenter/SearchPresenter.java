@@ -1,15 +1,11 @@
-package com.neworin.easyweather.home.presenter;
+package com.neworin.easyweather.module.search.presenter;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.neworin.easyweather.entity.H5Weather;
-import com.neworin.easyweather.entity.Weather;
-import com.neworin.easyweather.home.model.HomeModelImpl;
-import com.neworin.easyweather.home.model.IHomeModel;
-import com.neworin.easyweather.home.view.IHomeView;
-
-import java.util.List;
+import com.neworin.easyweather.module.home.model.HomeModelImpl;
+import com.neworin.easyweather.module.home.model.IHomeModel;
+import com.neworin.easyweather.module.home.view.ISearchView;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -20,13 +16,13 @@ import retrofit2.Response;
  * Email: neworin@163.com
  * Description:
  */
-public class HomePresenter {
+public class SearchPresenter {
 
-    private IHomeView mHomeView;
+    private ISearchView mHomeView;
     private IHomeModel mHomeModel;
     private Context mContext;
 
-    public HomePresenter(IHomeView view, Context context) {
+    public SearchPresenter(ISearchView view, Context context) {
         this.mHomeView = view;
         this.mHomeModel = new HomeModelImpl();
         this.mContext = context;
