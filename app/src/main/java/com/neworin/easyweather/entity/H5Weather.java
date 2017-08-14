@@ -9,4 +9,5 @@ import java.util.List;
  */
 public class H5Weather {
     public List<Weather> HeWeather5;
+    public List<Basic> basic;
 }

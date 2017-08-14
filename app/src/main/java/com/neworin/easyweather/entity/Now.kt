@@ -30,6 +30,5 @@ class Now : BaseEntity() {
         var sc: String? = null
         var spd: String? = null
 
-
     }
 }

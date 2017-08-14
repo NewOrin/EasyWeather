@@ -6,6 +6,10 @@
         <variable
             name="now"
             type="com.neworin.easyweather.entity.Now"/>
+
+        <variable
+            name="dailyForcast"
+            type="com.neworin.easyweather.entity.DailyForecast"/>
     </data>
 
     <RelativeLayout
@@ -24,27 +28,49 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp">
+            android:layout_height="300dp"
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/home_current_tmp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
                 android:layout_marginTop="50dp"
-                android:text="@{now.tmp}"
+                android:layout_centerInParent="true"
+                android:text="@{now.tmp+@string/home_tmp_unit}"
                 android:textColor="#000"
                 android:textSize="40sp"
                 android:textStyle="bold"/>
 
-            <TextView
-                android:id="@+id/home_current_tmp_inf"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/home_current_tmp"
-                android:layout_centerHorizontal="true"
-                android:text="@{now.cond.txt+@string/home_tmp_unit}"
-                android:textSize="20sp"/>
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/home_current_tmp_inf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{now.cond.txt+@string/home_tmp_con_tmp_unit}"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/home_current_tmp_min"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{dailyForcast.tmp.min+@string/home_tmp_min_max_unit}"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/home_current_tmp_max"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{dailyForcast.tmp.max+@string/home_tmp_unit}"
+                    android:textSize="20sp"/>
+            </LinearLayout>
         </RelativeLayout>
     </RelativeLayout>
 </layout>

@@ -2,6 +2,11 @@
     <string name="app_name">EasyWeather</string>
 
     <string name="home_tmp_unit">°C</string>
+    <string name="home_tmp_min_max_unit">/</string>
+    <string name="home_tmp_con_tmp_unit">-</string>
     <string name="home_menu_search">搜索</string>
     <string name="search_input_hint">查找城市</string>
+    <string name="item_search_no_result_hint">未找到相关城市</string>
+    <string name="item_search_result_no_city_hint">unknown city</string>
+    <string name="item_search_result_ok_status">ok</string>
 </resources>

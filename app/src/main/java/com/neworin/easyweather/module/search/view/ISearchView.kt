@@ -8,5 +8,7 @@ import com.neworin.easyweather.entity.Weather
  * Description:
  */
 interface ISearchView {
-    fun refreshData(list: List<Weather>)
+
+    fun refreshData(weatherList:List<Weather>)
+
 }

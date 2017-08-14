@@ -11,16 +11,18 @@ import android.view.MenuItem;
 
 import com.neworin.easyweather.R;
 import com.neworin.easyweather.databinding.ActivityMainBinding;
+import com.neworin.easyweather.entity.Basic;
 import com.neworin.easyweather.entity.Weather;
 import com.neworin.easyweather.module.home.presenter.HomePresenter;
-import com.neworin.easyweather.module.home.view.ISearchView;
+import com.neworin.easyweather.module.home.view.IHomeView;
 import com.neworin.easyweather.module.search.SearchActivity;
+import com.neworin.easyweather.utils.Constant;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements ISearchView, Toolbar.OnMenuItemClickListener {
+public class MainActivity extends AppCompatActivity implements IHomeView, Toolbar.OnMenuItemClickListener {
 
     private ActivityMainBinding mBinding;
     private HomePresenter mHomePresenter;
@@ -34,11 +36,12 @@ public class MainActivity extends AppCompatActivity implements ISearchView, Tool
 
     private void initView() {
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        mBinding.toolbar.setTitle("赣州");
         setSupportActionBar(mBinding.toolbar);
         mBinding.toolbar.setOnMenuItemClickListener(this);
         mHomePresenter = new HomePresenter(this, MainActivity.this);
-        mHomePresenter.getCityWeather("赣州");
+        if (mHomePresenter.getSharedPrefCity() != null) {
+            mHomePresenter.getCityWeather(mHomePresenter.getSharedPrefCity().getId());
+        }
     }
 
     @Override
@@ -50,13 +53,26 @@ public class MainActivity extends AppCompatActivity implements ISearchView, Tool
     @Override
     public void refreshData(@NotNull List<Weather> list) {
         mBinding.setNow(list.get(0).getNow());
+        mBinding.setDailyForcast(list.get(0).getDaily_forecast().get(0));
+        mBinding.toolbar.setTitle(list.get(0).getBasic().getCity());
     }
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
         if (item.getItemId() == R.id.home_menu_search) {
-            startActivity(new Intent(MainActivity.this, SearchActivity.class));
+            startActivityForResult(new Intent(MainActivity.this, SearchActivity.class), Constant.INSTANCE.getINTENT_KEY_CODE_01());
         }
         return true;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == Constant.INSTANCE.getINTENT_KEY_CODE_01()) {
+            Basic basic = mHomePresenter.getCityId(data);
+            if (null != basic) {
+                mHomePresenter.getCityWeather(basic.getId());
+            }
+        }
     }
 }

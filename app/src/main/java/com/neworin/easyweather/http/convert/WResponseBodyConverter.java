@@ -1,17 +1,10 @@
 package com.neworin.easyweather.http.convert;
 
-import android.util.Log;
-
 import com.alibaba.fastjson.JSON;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import com.google.gson.reflect.TypeToken;
 import com.neworin.easyweather.entity.H5Weather;
 import com.neworin.easyweather.entity.Weather;
-import com.neworin.easyweather.util.GsonUtil;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;

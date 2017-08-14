@@ -7,17 +7,19 @@ package com.neworin.easyweather.entity
  */
 class Basic : BaseEntity() {
 
-    private val city: String? = null
-    private val cnty: String? = null
-    private val id: String? = null
-    private val lat: String? = null
-    private val lon: String? = null
-    private val update: UpdateBean? = null
+    var city: String? = null
+    var cnty: String? = null
+    var id: String? = null
+    var lat: String? = null
+    var lon: String? = null
+    var prov: String? = null
+    var update: UpdateBean? = null
+    var status : String? = null
 
-    internal inner class UpdateBean {
+    inner class UpdateBean {
 
-        private val loc: String? = null
-        private val utc: String? = null
+        var loc: String? = null
+        var utc: String? = null
 
     }
 }
