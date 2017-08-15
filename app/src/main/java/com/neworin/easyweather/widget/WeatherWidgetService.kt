@@ -9,9 +9,7 @@ import com.neworin.easyweather.R
 import com.neworin.easyweather.utils.Constant
 
 /**
- * Copyright (C), 2011-2017 91账单
  * Author: zhangfubin
- * Email: zhangfubin@91zdan.com
  * Description:
  */
 class WeatherWidgetService : RemoteViewsService() {
