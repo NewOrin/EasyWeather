@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".WeatherWidgetProvider">
+        <receiver android:name=".widget.WeatherWidgetProvider">
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/weather_widget_provider_info"/>
@@ -33,6 +33,8 @@
 
         <activity android:name="com.neworin.easyweather.module.search.SearchActivity">
         </activity>
+        <service android:name=".TestService"/>
+        <service android:name=".widget.WeatherWidgetService"/>
     </application>
 
 </manifest>

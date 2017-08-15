@@ -18,4 +18,6 @@ object Constant {
     val SHARED_PREF_NAME = "easyweather_pref"
 
     val SHARED_CITIES_TAG = "shared_cities_tag"
+
+    val CLICK_ACTION: String = "com.neworin.easyweather.action.CLICK"
 }

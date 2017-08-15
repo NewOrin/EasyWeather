@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.neworin.easyweather.R;
+import com.neworin.easyweather.TestService;
 import com.neworin.easyweather.databinding.ActivityMainBinding;
 import com.neworin.easyweather.entity.Basic;
 import com.neworin.easyweather.entity.Weather;
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements IHomeView, Toolba
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == Constant.INSTANCE.getINTENT_KEY_CODE_01()) {
+        if (requestCode == Constant.INSTANCE.getINTENT_KEY_CODE_01() && null != data) {
             Basic basic = mHomePresenter.getCityId(data);
             if (null != basic) {
                 mHomePresenter.getCityWeather(basic.getId());

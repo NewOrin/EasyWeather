@@ -1,10 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
-<ImageView
-    android:layout_width="wrap_content"
-    android:id="@+id/widget_image"
-    android:layout_height="wrap_content"/>
-</LinearLayout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/weather_widget_item_rl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/weather_widget_city_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="Ganzhou"
+            android:textColor="#000"
+            android:textSize="26sp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/weather_widget_show_cond_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center"
+                android:src="@mipmap/ic_launcher"/>
+
+            <TextView
+                android:id="@+id/weather_widget_show_tmp_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:text="30℃"
+                android:textSize="50sp"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/weather_widget_round_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="多云20-30 C"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+    <!--<GridView-->
+    <!--android:id="@+id/weather_widget_gridview"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@+id/weather_widget_show_cond_tv"-->
+    <!--android:layout_centerHorizontal="true"/>-->
+</RelativeLayout>
