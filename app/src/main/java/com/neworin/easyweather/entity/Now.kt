@@ -16,14 +16,14 @@ class Now : BaseEntity() {
     var vis: String? = null
     var wind: WindBean? = null
 
-    inner class CondBean {
+    inner class CondBean : BaseEntity() {
 
         var code: String? = null
         var txt: String? = null
 
     }
 
-    inner class WindBean {
+    inner class WindBean : BaseEntity() {
 
         var deg: String? = null
         var dir: String? = null

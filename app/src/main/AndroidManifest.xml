@@ -34,7 +34,9 @@
         <activity android:name="com.neworin.easyweather.module.search.SearchActivity">
         </activity>
         <service android:name=".TestService"/>
-        <service android:name=".widget.WeatherWidgetService"/>
+        <service android:name=".widget.GridWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS"
+            />
     </application>
 
 </manifest>

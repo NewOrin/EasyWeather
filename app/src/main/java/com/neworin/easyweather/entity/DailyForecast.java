@@ -11,7 +11,7 @@ public class DailyForecast extends BaseEntity {
     public String date;
     public Tmp tmp;
 
-    public class Tmp {
+    public class Tmp extends BaseEntity{
         public String max;
         public String min;
     }

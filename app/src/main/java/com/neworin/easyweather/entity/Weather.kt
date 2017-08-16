@@ -11,6 +11,7 @@ class Weather : BaseEntity() {
     var now: Now? = null
     var status: String? = null
     var daily_forecast: List<DailyForecast>? = null
+    var hourly_forecast: List<HourlyForecast>? = null
     override fun toString(): String {
         return "Weather(aqi=$aqi, basic=$basic, now=$now, status=$status)"
     }

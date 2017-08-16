@@ -16,7 +16,7 @@ class Basic : BaseEntity() {
     var update: UpdateBean? = null
     var status : String? = null
 
-    inner class UpdateBean {
+    inner class UpdateBean : BaseEntity() {
 
         var loc: String? = null
         var utc: String? = null

@@ -10,7 +10,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.neworin.easyweather.R;
-import com.neworin.easyweather.TestService;
 import com.neworin.easyweather.databinding.ActivityMainBinding;
 import com.neworin.easyweather.entity.Basic;
 import com.neworin.easyweather.entity.Weather;

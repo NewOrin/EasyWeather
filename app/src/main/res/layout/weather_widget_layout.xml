@@ -5,6 +5,7 @@
                 android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/weather_widget_ll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -60,12 +61,13 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_widget_refresh"/>
         </LinearLayout>
+
+        <GridView
+            android:id="@+id/weather_widget_gridview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:numColumns="4"/>
     </LinearLayout>
 
-    <!--<GridView-->
-    <!--android:id="@+id/weather_widget_gridview"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_below="@+id/weather_widget_show_cond_tv"-->
-    <!--android:layout_centerHorizontal="true"/>-->
 </RelativeLayout>

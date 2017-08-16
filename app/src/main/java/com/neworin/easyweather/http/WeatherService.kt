@@ -19,4 +19,7 @@ interface WeatherService {
 
     @GET("search")
     fun searchCity(@Query("city") city: String): Call<H5Weather>
+
+    @GET("hourly")
+    fun getHourlyWeather(@Query("city") city: String): Call<H5Weather>
 }

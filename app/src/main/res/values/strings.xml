@@ -9,4 +9,6 @@
     <string name="item_search_no_result_hint">未找到相关城市</string>
     <string name="item_search_result_no_city_hint">unknown city</string>
     <string name="item_search_result_ok_status">ok</string>
+    <string name="weather_widget_update_success_hint">天气已更新</string>
+    <string name="weather_widget_update_failed_hint">天气更新失败</string>
 </resources>
