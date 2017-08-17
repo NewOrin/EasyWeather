@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.neworin.easyweather.module.home.MainActivity">
+        <activity android:name=".module.home.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -31,12 +31,14 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name="com.neworin.easyweather.module.search.SearchActivity">
+        <activity android:name=".module.search.SearchActivity">
         </activity>
+
         <service android:name=".TestService"/>
-        <service android:name=".widget.GridWidgetService"
-            android:permission="android.permission.BIND_REMOTEVIEWS"
-            />
+        <service
+            android:name=".widget.GridWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS"/>
+
     </application>
 
 </manifest>

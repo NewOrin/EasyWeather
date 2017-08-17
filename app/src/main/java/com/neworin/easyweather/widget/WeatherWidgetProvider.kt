@@ -6,24 +6,15 @@ import android.appwidget.AppWidgetProvider
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.widget.RemoteViews
 import android.widget.Toast
-import com.alibaba.fastjson.JSON
 import com.neworin.easyweather.R
-import com.neworin.easyweather.entity.Basic
 import com.neworin.easyweather.entity.H5Weather
-import com.neworin.easyweather.module.home.model.HomeModelImpl
 import com.neworin.easyweather.utils.Constant
-import com.neworin.easyweather.utils.SharedPreferenceUtil
 import com.neworin.easyweather.widget.model.WidgetModelImpl
 import com.neworin.easyweather.widget.presenter.WidgetPresenter
 import com.neworin.easyweather.widget.view.IWidgetView
-import com.orhanobut.logger.Logger
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class WeatherWidgetProvider : AppWidgetProvider(), IWidgetView {
 
@@ -60,7 +51,7 @@ class WeatherWidgetProvider : AppWidgetProvider(), IWidgetView {
 
             val gridIntent = Intent(context, GridWidgetService::class.java)
             rv.setRemoteAdapter(R.id.weather_widget_gridview, gridIntent)
-
+            updateWeather(context, appId)
             appWidgetManager?.updateAppWidget(appId, rv)
         }
         super.onUpdate(context, appWidgetManager, appWidgetIds)
