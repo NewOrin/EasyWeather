@@ -6,6 +6,7 @@ import android.appwidget.AppWidgetProvider
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.RemoteViews
 import android.widget.Toast
@@ -29,7 +30,7 @@ class WeatherWidgetProvider : AppWidgetProvider(), IWidgetView {
     /**
      * 刷新控件
      */
-    override fun refreshWidget(h5Weather: H5Weather, context: Context) {
+    override fun refreshWidget(h5Weather: H5Weather, context: Context, appId: Int) {
         val appWidgetManager = AppWidgetManager.getInstance(context)
         val rv = RemoteViews(context.packageName, R.layout.weather_widget_layout)
         val tmp = h5Weather.HeWeather5[0].now?.tmp
@@ -39,13 +40,7 @@ class WeatherWidgetProvider : AppWidgetProvider(), IWidgetView {
         val max = h5Weather.HeWeather5[0].daily_forecast?.get(0)?.tmp?.max
         val min = h5Weather.HeWeather5[0].daily_forecast?.get(0)?.tmp?.min
         rv.setTextViewText(R.id.weather_widget_round_tv, "$cond $min °- $max °C")
-        //设置gridview的adapter
-        val gridIntent = Intent(context, GridWidgetService::class.java)
-        val bundle = Bundle()
-        bundle.putSerializable(Constant.INTENT_KEY_STR_01, h5Weather.HeWeather5[0])
-        gridIntent.putExtras(bundle)
-        gridIntent.putExtra("test","hello")
-        rv.setRemoteAdapter(R.id.weather_widget_gridview, gridIntent)
+        appWidgetManager.notifyAppWidgetViewDataChanged(appId, R.id.weather_widget_gridview)
         appWidgetManager.updateAppWidget(ComponentName(context, WeatherWidgetProvider::class.java), rv)
         Toast.makeText(context, context.getString(R.string.weather_widget_update_success_hint), Toast.LENGTH_SHORT).show()
     }
@@ -55,25 +50,27 @@ class WeatherWidgetProvider : AppWidgetProvider(), IWidgetView {
     }
 
     override fun onUpdate(context: Context?, appWidgetManager: AppWidgetManager?, appWidgetIds: IntArray?) {
-        super.onUpdate(context, appWidgetManager, appWidgetIds)
         for (appId in appWidgetIds!!) {
             val rv = RemoteViews(context?.packageName, R.layout.weather_widget_layout)
             val intentClick = Intent()
             intentClick.action = Constant.CLICK_ACTION
+            intentClick.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appId)
             val pendingIntent = PendingIntent.getBroadcast(context, 0, intentClick, 0)
             rv.setOnClickPendingIntent(R.id.weather_widget_refresh_image, pendingIntent)
+
             val gridIntent = Intent(context, GridWidgetService::class.java)
-            gridIntent.putExtra("test","hello12323")
             rv.setRemoteAdapter(R.id.weather_widget_gridview, gridIntent)
+
             appWidgetManager?.updateAppWidget(appId, rv)
         }
+        super.onUpdate(context, appWidgetManager, appWidgetIds)
     }
 
     override fun onReceive(context: Context?, intent: Intent?) {
         super.onReceive(context, intent)
         if (Constant.CLICK_ACTION == intent?.action) {
-            Logger.d("开始更新天气")
-//            updateWeather(context)
+            val appId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID)
+            updateWeather(context, appId)
         }
     }
 
@@ -100,8 +97,8 @@ class WeatherWidgetProvider : AppWidgetProvider(), IWidgetView {
     /**
      * 更新天气网络请求
      */
-    fun updateWeather(context: Context?) {
+    fun updateWeather(context: Context?, appWidgetId: Int) {
         val mPresenter = WidgetPresenter(context!!, WidgetModelImpl(), this)
-        mPresenter.getWeather()
+        mPresenter.getWeather(appWidgetId)
     }
 }

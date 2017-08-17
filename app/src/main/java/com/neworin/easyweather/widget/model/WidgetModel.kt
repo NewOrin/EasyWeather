@@ -11,4 +11,6 @@ import retrofit2.Callback
  */
 interface WidgetModel {
     fun getWeatherByCityName(city: String, callback: Callback<H5Weather>)
+
+    fun getHourlyWeather(city: String, callback: Callback<H5Weather>)
 }

@@ -7,7 +7,7 @@ import com.neworin.easyweather.entity.H5Weather
 import com.neworin.easyweather.utils.Constant
 import com.neworin.easyweather.utils.SharedPreferenceUtil
 import com.neworin.easyweather.widget.model.WidgetModelImpl
-import com.neworin.easyweather.widget.view.IWidgetView
+import com.neworin.easyweather.widget.view.IGridView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -18,13 +18,12 @@ import retrofit2.Response
  * Email: zhangfubin@91zdan.com
  * Description:
  */
+class GridViewPresenter(val mContext: Context, val mWidgetModel: WidgetModelImpl, val mView: IGridView) {
 
-class WidgetPresenter(val mContext: Context, val mWidgetModel: WidgetModelImpl, val mView: IWidgetView) {
-
-    fun getWeather(appId: Int) {
-        mWidgetModel.getWeatherByCityName(getCurrentCity(), object : Callback<H5Weather> {
+    fun getWeather() {
+        mWidgetModel.getHourlyWeather(getCurrentCity(), object : Callback<H5Weather> {
             override fun onResponse(call: Call<H5Weather>, response: Response<H5Weather>) {
-                mView.refreshWidget(response.body(), mContext, appId)
+                mView.refreshData(response.body(),mContext)
             }
 
             override fun onFailure(call: Call<H5Weather>, t: Throwable) {
@@ -32,6 +31,7 @@ class WidgetPresenter(val mContext: Context, val mWidgetModel: WidgetModelImpl, 
             }
         })
     }
+
 
     /**
      * 获取当前城市

@@ -9,9 +9,9 @@ import com.neworin.easyweather.entity.H5Weather
  * Email: zhangfubin@91zdan.com
  * Description:
  */
-interface IWidgetView {
+interface IGridView {
 
-    fun refreshWidget(h5Weather: H5Weather, context: Context, appId: Int)
+    fun refreshData(h5Weather: H5Weather, context: Context)
 
     fun refreshFailed(errorMsg: String,context: Context)
 }
