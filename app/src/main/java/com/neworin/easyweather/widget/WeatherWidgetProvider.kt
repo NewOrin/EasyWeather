@@ -27,10 +27,9 @@ class WeatherWidgetProvider : AppWidgetProvider(), IWidgetView {
         val tmp = h5Weather.HeWeather5[0].now?.tmp
         rv.setTextViewText(R.id.weather_widget_show_tmp_tv, " $tmp °C")
         rv.setTextViewText(R.id.weather_widget_city_tv, h5Weather.HeWeather5[0].basic?.city)
-        val cond = h5Weather.HeWeather5[0].now?.cond?.txt
-        val max = h5Weather.HeWeather5[0].daily_forecast?.get(0)?.tmp?.max
-        val min = h5Weather.HeWeather5[0].daily_forecast?.get(0)?.tmp?.min
-        rv.setTextViewText(R.id.weather_widget_round_tv, "$cond $min °- $max °C")
+//        val cond = h5Weather.HeWeather5[0].now?.cond?.txt
+//        val max = h5Weather.HeWeather5[0].daily_forecast?.get(0)?.tmp?.max
+//        val min = h5Weather.HeWeather5[0].daily_forecast?.get(0)?.tmp?.min
         appWidgetManager.notifyAppWidgetViewDataChanged(appId, R.id.weather_widget_gridview)
         appWidgetManager.updateAppWidget(ComponentName(context, WeatherWidgetProvider::class.java), rv)
         Toast.makeText(context, context.getString(R.string.weather_widget_update_success_hint), Toast.LENGTH_SHORT).show()

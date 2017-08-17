@@ -44,5 +44,5 @@ dependencies {
     compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
     compile 'com.orhanobut:logger:2.1.1'
     implementation 'com.alibaba:fastjson:1.2.35'
-    kapt "com.android.databinding:compiler:2.3.0"
+    kapt "com.android.databinding:compiler:2.3.3"
 }

@@ -10,9 +10,25 @@ public class DailyForecast extends BaseEntity {
 
     public String date;
     public Tmp tmp;
+    public Cond cond;
+    public Wind wind;
+
 
     public class Tmp extends BaseEntity{
         public String max;
         public String min;
+    }
+    class Cond extends BaseEntity {
+        public String code_d;
+        public String code_n;
+        public String txt_d;
+        public String txt_n;
+    }
+
+    class Wind extends BaseEntity {
+        public String deg;
+        public String dir;
+        public String sc;
+        public String spd;
     }
 }

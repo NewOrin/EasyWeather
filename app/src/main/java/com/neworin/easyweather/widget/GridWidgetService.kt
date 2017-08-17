@@ -7,6 +7,7 @@ import android.widget.RemoteViews
 import android.widget.RemoteViewsService
 import android.widget.Toast
 import com.neworin.easyweather.R
+import com.neworin.easyweather.entity.DailyForecast
 import com.neworin.easyweather.entity.H5Weather
 import com.neworin.easyweather.entity.HourlyForecast
 import com.neworin.easyweather.entity.Weather
@@ -40,7 +41,7 @@ class GridWidgetService : RemoteViewsService() {
         }
 
         override fun refreshData(h5Weather: H5Weather, context: Context) {
-            mDatas = h5Weather.HeWeather5[0].hourly_forecast as ArrayList<HourlyForecast>
+            mDatas = h5Weather.HeWeather5[0].daily_forecast as ArrayList<DailyForecast>
         }
 
         override fun refreshFailed(errorMsg: String, context: Context) {
@@ -63,14 +64,16 @@ class GridWidgetService : RemoteViewsService() {
             mDatas.clear()
         }
 
-        var mDatas = ArrayList<HourlyForecast>()
+        var mDatas = ArrayList<DailyForecast>()
 
         override fun onCreate() {
         }
 
         override fun getViewAt(position: Int): RemoteViews {
             val rv = RemoteViews(ctx.packageName, R.layout.item_weather_widget_gridview_layout)
-            rv.setTextViewText(R.id.item_weather_widget_gridview_title_tv, mDatas[position].tmp)
+            val max = mDatas[position].tmp.max
+            val min = mDatas[position].tmp.min
+            rv.setTextViewText(R.id.item_weather_widget_gridview_title_tv, "$min ~ $max")
             val fillIntent = Intent()
             fillIntent.putExtra(Constant.CLICK_ACTION, position)
             rv.setOnClickFillInIntent(R.id.item_weather_widget_gridview_title_tv, fillIntent)
