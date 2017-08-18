@@ -18,14 +18,15 @@ public class DailyForecast extends BaseEntity {
         public String max;
         public String min;
     }
-    class Cond extends BaseEntity {
+
+    public class Cond extends BaseEntity {
         public String code_d;
         public String code_n;
         public String txt_d;
         public String txt_n;
     }
 
-    class Wind extends BaseEntity {
+    public class Wind extends BaseEntity {
         public String deg;
         public String dir;
         public String sc;

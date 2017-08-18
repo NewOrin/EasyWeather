@@ -12,6 +12,7 @@ import com.neworin.easyweather.entity.H5Weather
 import com.neworin.easyweather.entity.HourlyForecast
 import com.neworin.easyweather.entity.Weather
 import com.neworin.easyweather.utils.Constant
+import com.neworin.easyweather.utils.ImageSource
 import com.neworin.easyweather.widget.model.WidgetModelImpl
 import com.neworin.easyweather.widget.presenter.GridViewPresenter
 import com.neworin.easyweather.widget.view.IGridView
@@ -73,7 +74,9 @@ class GridWidgetService : RemoteViewsService() {
             val rv = RemoteViews(ctx.packageName, R.layout.item_weather_widget_gridview_layout)
             val max = mDatas[position].tmp.max
             val min = mDatas[position].tmp.min
+            val code = mDatas[position].cond.code_d.toInt()
             rv.setTextViewText(R.id.item_weather_widget_gridview_title_tv, "$min ~ $max")
+            rv.setImageViewResource(R.id.item_weather_widget_gridview_image, ImageSource.getResouceId(code))
             val fillIntent = Intent()
             fillIntent.putExtra(Constant.CLICK_ACTION, position)
             rv.setOnClickFillInIntent(R.id.item_weather_widget_gridview_title_tv, fillIntent)

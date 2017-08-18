@@ -13,4 +13,7 @@ interface WidgetModel {
     fun getWeatherByCityName(city: String, callback: Callback<H5Weather>)
 
     fun getHourlyWeather(city: String, callback: Callback<H5Weather>)
+
+    fun getDailyWeather(city: String, callback: Callback<H5Weather>)
+
 }

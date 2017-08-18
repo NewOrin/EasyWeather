@@ -21,7 +21,7 @@ import retrofit2.Response
 class GridViewPresenter(val mContext: Context, val mWidgetModel: WidgetModelImpl, val mView: IGridView) {
 
     fun getWeather() {
-        mWidgetModel.getHourlyWeather(getCurrentCity(), object : Callback<H5Weather> {
+        mWidgetModel.getDailyWeather(getCurrentCity(), object : Callback<H5Weather> {
             override fun onResponse(call: Call<H5Weather>, response: Response<H5Weather>) {
                 mView.refreshData(response.body(),mContext)
             }

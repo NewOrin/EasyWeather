@@ -12,6 +12,7 @@ import android.widget.Toast
 import com.neworin.easyweather.R
 import com.neworin.easyweather.entity.H5Weather
 import com.neworin.easyweather.utils.Constant
+import com.neworin.easyweather.utils.ImageSource
 import com.neworin.easyweather.widget.model.WidgetModelImpl
 import com.neworin.easyweather.widget.presenter.WidgetPresenter
 import com.neworin.easyweather.widget.view.IWidgetView
@@ -25,6 +26,8 @@ class WeatherWidgetProvider : AppWidgetProvider(), IWidgetView {
         val appWidgetManager = AppWidgetManager.getInstance(context)
         val rv = RemoteViews(context.packageName, R.layout.weather_widget_layout)
         val tmp = h5Weather.HeWeather5[0].now?.tmp
+        val code = h5Weather.HeWeather5[0].now?.cond?.code
+        rv.setImageViewResource(R.id.weather_widget_show_cond_image, ImageSource.getResouceId(code!!.toInt()))
         rv.setTextViewText(R.id.weather_widget_show_tmp_tv, " $tmp °C")
         rv.setTextViewText(R.id.weather_widget_city_tv, h5Weather.HeWeather5[0].basic?.city)
 //        val cond = h5Weather.HeWeather5[0].now?.cond?.txt
@@ -46,7 +49,7 @@ class WeatherWidgetProvider : AppWidgetProvider(), IWidgetView {
             intentClick.action = Constant.CLICK_ACTION
             intentClick.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appId)
             val pendingIntent = PendingIntent.getBroadcast(context, 0, intentClick, 0)
-            rv.setOnClickPendingIntent(R.id.weather_widget_refresh_image, pendingIntent)
+            rv.setOnClickPendingIntent(R.id.weather_widget_show_cond_image, pendingIntent)
 
             val gridIntent = Intent(context, GridWidgetService::class.java)
             rv.setRemoteAdapter(R.id.weather_widget_gridview, gridIntent)

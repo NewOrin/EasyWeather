@@ -11,8 +11,14 @@ import retrofit2.Callback
  * Description:
  */
 class WidgetModelImpl : WidgetModel {
+
+    override fun getDailyWeather(city: String, callback: Callback<H5Weather>) {
+        val call = ServiceGenerator.createService().getDailyWeather(city)
+        call.enqueue(callback)
+    }
+
     override fun getHourlyWeather(city: String, callback: Callback<H5Weather>) {
-        val call = ServiceGenerator.createService().getHourlyWeather(city)
+        val call = ServiceGenerator.createService().getByCityName(city)
         call.enqueue(callback)
     }
 

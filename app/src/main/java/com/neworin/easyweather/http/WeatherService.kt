@@ -22,4 +22,7 @@ interface WeatherService {
 
     @GET("hourly")
     fun getHourlyWeather(@Query("city") city: String): Call<H5Weather>
+
+    @GET("forecast")
+    fun getDailyWeather(@Query("city") city: String): Call<H5Weather>
 }
