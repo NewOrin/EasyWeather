@@ -1,6 +1,6 @@
 package com.neworin.easyweather.module.home.model;
 
-import com.neworin.easyweather.entity.H5Weather;
+import com.neworin.easyweather.entity.heweather.H5Weather;
 
 import retrofit2.Callback;
 

@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import com.neworin.easyweather.R
 import com.neworin.easyweather.databinding.ItemSearchResultBinding
-import com.neworin.easyweather.entity.Weather
 import com.neworin.easyweather.entity.db.Citys
 
 /**

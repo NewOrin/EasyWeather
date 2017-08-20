@@ -5,12 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.alibaba.fastjson.JSON;
-import com.neworin.easyweather.entity.Basic;
-import com.neworin.easyweather.entity.H5Weather;
+import com.neworin.easyweather.entity.heweather.Basic;
+import com.neworin.easyweather.entity.heweather.H5Weather;
 import com.neworin.easyweather.module.home.model.HomeModelImpl;
 import com.neworin.easyweather.module.home.model.IHomeModel;
 import com.neworin.easyweather.module.home.view.IHomeView;
-import com.neworin.easyweather.module.home.view.ISearchView;
 import com.neworin.easyweather.utils.Constant;
 import com.neworin.easyweather.utils.SharedPreferenceUtil;
 

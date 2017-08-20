@@ -20,4 +20,6 @@ object Constant {
     val SHARED_CITIES_TAG = "shared_cities_tag"
 
     val CLICK_ACTION: String = "com.neworin.easyweather.action.CLICK"
+
+    val XIAOMI_WEATHER_SIGN = "zUFJoAR2ZVrDy1vF3D07"
 }

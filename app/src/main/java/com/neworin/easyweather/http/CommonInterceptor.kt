@@ -56,7 +56,12 @@ class CommonInterceptor : Interceptor {
 
         val builder = oldRequest.url()
                 .newBuilder()
-                .setEncodedQueryParameter("key", Constant.APP_HEWEATHER_KEY)
+                .setEncodedQueryParameter("latitude", "0")
+                .setEncodedQueryParameter("longitude", "0")
+                .setEncodedQueryParameter("sign", Constant.XIAOMI_WEATHER_SIGN)
+                .setEncodedQueryParameter("appKey", "weather20151024")
+                .setEncodedQueryParameter("isGlobal", false.toString())
+                .setEncodedQueryParameter("locale", "zh_cn")
 
         val newRequest = oldRequest.newBuilder()
                 .method(oldRequest.method(), oldRequest.body())

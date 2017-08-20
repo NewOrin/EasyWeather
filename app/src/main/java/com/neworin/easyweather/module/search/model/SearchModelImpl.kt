@@ -1,10 +1,8 @@
 package com.neworin.easyweather.module.search.model
 
-import com.neworin.easyweather.entity.H5Weather
+import com.neworin.easyweather.entity.heweather.H5Weather
 import com.neworin.easyweather.http.ServiceGenerator
-import com.neworin.easyweather.module.home.model.*
 
-import retrofit2.Call
 import retrofit2.Callback
 
 /**

@@ -7,16 +7,14 @@ import android.widget.RemoteViews
 import android.widget.RemoteViewsService
 import android.widget.Toast
 import com.neworin.easyweather.R
-import com.neworin.easyweather.entity.DailyForecast
-import com.neworin.easyweather.entity.H5Weather
-import com.neworin.easyweather.entity.HourlyForecast
-import com.neworin.easyweather.entity.Weather
+import com.neworin.easyweather.entity.heweather.DailyForecast
+import com.neworin.easyweather.entity.heweather.H5Weather
+import com.neworin.easyweather.entity.heweather.Weather
 import com.neworin.easyweather.utils.Constant
 import com.neworin.easyweather.utils.ImageSource
 import com.neworin.easyweather.widget.model.WidgetModelImpl
 import com.neworin.easyweather.widget.presenter.GridViewPresenter
 import com.neworin.easyweather.widget.view.IGridView
-import com.orhanobut.logger.Logger
 import java.util.ArrayList
 
 /**

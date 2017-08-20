@@ -10,7 +10,7 @@ import android.os.Bundle
 import android.widget.RemoteViews
 import android.widget.Toast
 import com.neworin.easyweather.R
-import com.neworin.easyweather.entity.H5Weather
+import com.neworin.easyweather.entity.heweather.H5Weather
 import com.neworin.easyweather.utils.Constant
 import com.neworin.easyweather.utils.ImageSource
 import com.neworin.easyweather.widget.model.WidgetModelImpl

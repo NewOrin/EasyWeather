@@ -5,11 +5,11 @@
 
         <variable
             name="now"
-            type="com.neworin.easyweather.entity.Now"/>
+            type="com.neworin.easyweather.entity.heweather.Now"/>
 
         <variable
             name="dailyForcast"
-            type="com.neworin.easyweather.entity.DailyForecast"/>
+            type="com.neworin.easyweather.entity.heweather.DailyForecast"/>
     </data>
 
     <RelativeLayout

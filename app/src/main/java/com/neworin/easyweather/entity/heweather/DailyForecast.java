@@ -1,4 +1,4 @@
-package com.neworin.easyweather.entity;
+package com.neworin.easyweather.entity.heweather;
 
 /**
  * Copyright (C), 2011-2017 91账单

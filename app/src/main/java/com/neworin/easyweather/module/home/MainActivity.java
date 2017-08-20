@@ -18,23 +18,18 @@ import android.view.View;
 
 import com.neworin.easyweather.R;
 import com.neworin.easyweather.databinding.ActivityMainBinding;
-import com.neworin.easyweather.db.utils.DBManager;
-import com.neworin.easyweather.entity.Basic;
-import com.neworin.easyweather.entity.Weather;
+import com.neworin.easyweather.entity.heweather.Basic;
+import com.neworin.easyweather.entity.heweather.Weather;
 import com.neworin.easyweather.entity.db.Citys;
 import com.neworin.easyweather.module.home.presenter.HomePresenter;
 import com.neworin.easyweather.module.home.view.IHomeView;
 import com.neworin.easyweather.module.search.SearchActivity;
 import com.neworin.easyweather.utils.Constant;
-import com.orhanobut.logger.Logger;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import io.reactivex.Observer;
-import io.reactivex.disposables.Disposable;
 
 public class MainActivity extends AppCompatActivity implements IHomeView, Toolbar.OnMenuItemClickListener {
 
@@ -90,8 +85,6 @@ public class MainActivity extends AppCompatActivity implements IHomeView, Toolba
         if (requestCode == REQUEST_PERMISSION_CODE) {
             initView();
         }
-        String s = "sfd";
-        String [] strings = s.split(".");
     }
 
     @Override

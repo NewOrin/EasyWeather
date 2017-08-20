@@ -1,7 +1,7 @@
 package com.neworin.easyweather.widget.view
 
 import android.content.Context
-import com.neworin.easyweather.entity.H5Weather
+import com.neworin.easyweather.entity.heweather.H5Weather
 
 /**
  * Copyright (C), 2011-2017 91账单

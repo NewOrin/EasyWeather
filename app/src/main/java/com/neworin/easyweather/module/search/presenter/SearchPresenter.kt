@@ -1,15 +1,11 @@
 package com.neworin.easyweather.module.search.presenter
 
 import android.content.Context
-import android.content.SharedPreferences
 import com.alibaba.fastjson.JSON
 import com.neworin.easyweather.db.utils.DBManager
-import com.neworin.easyweather.entity.Basic
+import com.neworin.easyweather.entity.heweather.Basic
 
-import com.neworin.easyweather.entity.H5Weather
 import com.neworin.easyweather.entity.db.Citys
-import com.neworin.easyweather.module.home.model.HomeModelImpl
-import com.neworin.easyweather.module.home.model.IHomeModel
 import com.neworin.easyweather.module.home.view.ISearchView
 import com.neworin.easyweather.module.search.model.SearchModel
 import com.neworin.easyweather.module.search.model.SearchModelImpl
@@ -18,10 +14,6 @@ import com.neworin.easyweather.utils.SharedPreferenceUtil
 import com.orhanobut.logger.Logger
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
-
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 /**
  * Author: NewOrin Zhang

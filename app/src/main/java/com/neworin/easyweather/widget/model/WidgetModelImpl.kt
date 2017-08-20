@@ -1,6 +1,6 @@
 package com.neworin.easyweather.widget.model
 
-import com.neworin.easyweather.entity.H5Weather
+import com.neworin.easyweather.entity.heweather.H5Weather
 import com.neworin.easyweather.http.ServiceGenerator
 import retrofit2.Callback
 

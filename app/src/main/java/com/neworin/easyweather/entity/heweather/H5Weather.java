@@ -1,4 +1,4 @@
-package com.neworin.easyweather.entity;
+package com.neworin.easyweather.entity.heweather;
 
 import java.util.List;
 

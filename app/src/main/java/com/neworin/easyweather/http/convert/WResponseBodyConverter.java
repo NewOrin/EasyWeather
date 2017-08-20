@@ -2,8 +2,8 @@ package com.neworin.easyweather.http.convert;
 
 import com.alibaba.fastjson.JSON;
 import com.google.gson.Gson;
-import com.neworin.easyweather.entity.H5Weather;
-import com.neworin.easyweather.entity.Weather;
+import com.neworin.easyweather.entity.heweather.H5Weather;
+import com.neworin.easyweather.entity.heweather.Weather;
 
 import org.json.JSONObject;
 

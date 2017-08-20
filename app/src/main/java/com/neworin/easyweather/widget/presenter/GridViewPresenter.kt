@@ -2,8 +2,8 @@ package com.neworin.easyweather.widget.presenter
 
 import android.content.Context
 import com.alibaba.fastjson.JSON
-import com.neworin.easyweather.entity.Basic
-import com.neworin.easyweather.entity.H5Weather
+import com.neworin.easyweather.entity.heweather.Basic
+import com.neworin.easyweather.entity.heweather.H5Weather
 import com.neworin.easyweather.utils.Constant
 import com.neworin.easyweather.utils.SharedPreferenceUtil
 import com.neworin.easyweather.widget.model.WidgetModelImpl

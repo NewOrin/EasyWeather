@@ -1,6 +1,6 @@
 package com.neworin.easyweather.module.home.view
 
-import com.neworin.easyweather.entity.Weather
+import com.neworin.easyweather.entity.heweather.Weather
 
 /**
  * Author: NewOrin Zhang
