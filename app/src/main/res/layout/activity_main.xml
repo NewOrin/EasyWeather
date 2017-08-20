@@ -72,5 +72,20 @@
                     android:textSize="20sp"/>
             </LinearLayout>
         </RelativeLayout>
+
+        <Button
+            android:id="@+id/main_sql"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="sql"/>
+
+        <TextView
+            android:id="@+id/main_show_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"/>
+
     </RelativeLayout>
 </layout>

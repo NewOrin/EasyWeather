@@ -1,6 +1,7 @@
 package com.neworin.easyweather.module.home.view
 
 import com.neworin.easyweather.entity.Weather
+import com.neworin.easyweather.entity.db.Citys
 
 /**
  * Author: NewOrin Zhang
@@ -9,6 +10,6 @@ import com.neworin.easyweather.entity.Weather
  */
 interface ISearchView {
 
-    fun refreshData(weatherList:List<Weather>)
+    fun refreshData(cityList:List<Citys>)
 
 }

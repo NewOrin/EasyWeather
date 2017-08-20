@@ -8,7 +8,7 @@ import android.support.v7.widget.SearchView
 import com.neworin.easyweather.R
 import com.neworin.easyweather.adapter.ListViewAdapter
 import com.neworin.easyweather.databinding.ActivitySearchBinding
-import com.neworin.easyweather.entity.Weather
+import com.neworin.easyweather.entity.db.Citys
 import com.neworin.easyweather.module.home.view.ISearchView
 import com.neworin.easyweather.module.search.presenter.SearchPresenter
 import com.neworin.easyweather.utils.Constant
@@ -21,11 +21,11 @@ class SearchActivity : AppCompatActivity(), ISearchView {
 
     var mAdapter: ListViewAdapter? = null
 
-    var mDatas: List<Weather> = ArrayList()
+    var mDatas: List<Citys> = ArrayList()
 
-    override fun refreshData(weatherList: List<Weather>) {
-        mDatas = weatherList
-        mAdapter?.updateDatas(weatherList)
+    override fun refreshData(cityList: List<Citys>) {
+        mDatas = cityList
+        mAdapter?.updateDatas(cityList)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,15 +54,17 @@ class SearchActivity : AppCompatActivity(), ISearchView {
 
     fun initEvent() {
         mBinding!!.searchListview.setOnItemClickListener { parent, view, position, id ->
-            if (mDatas[position].status == getString(R.string.item_search_result_ok_status)) {
                 val intent = Intent()
                 val bundle = Bundle()
-                bundle.putSerializable(Constant.INTENT_KEY_STR_01, mDatas[position].basic)
+            bundle.putSerializable(Constant.INTENT_KEY_STR_01, mDatas[position].city_num)
                 intent.putExtras(bundle)
-                mPresenter.insertSharedCity(mDatas[position].basic!!)
+//                mPresenter.insertSharedCity(mDatas[position].basic!!)
                 setResult(Constant.INTENT_KEY_CODE_01, intent)
                 finish()
-            }
         }
+    }
+
+    fun queryCity(qStr: String) {
+
     }
 }

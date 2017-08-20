@@ -9,6 +9,7 @@ import android.widget.BaseAdapter
 import com.neworin.easyweather.R
 import com.neworin.easyweather.databinding.ItemSearchResultBinding
 import com.neworin.easyweather.entity.Weather
+import com.neworin.easyweather.entity.db.Citys
 
 /**
  * Copyright (C), 2011-2017 91账单
@@ -16,17 +17,24 @@ import com.neworin.easyweather.entity.Weather
  * Email: zhangfubin@91zdan.com
  * Description:
  */
-class ListViewAdapter(var mDatas: List<Weather>, var mContext: Context) : BaseAdapter() {
+class ListViewAdapter(var mDatas: List<Citys>, var mContext: Context) : BaseAdapter() {
 
     var mBinding: ItemSearchResultBinding? = null
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         mBinding = DataBindingUtil.bind(LayoutInflater.from(mContext).inflate(R.layout.item_search_result, parent, false))
-        if (mDatas[position].status == mContext.getString(R.string.item_search_result_ok_status)) {
-            mBinding!!.city = "${mDatas[position].basic?.city} - ${mDatas[position].basic?.prov} - ${mDatas[position].basic?.cnty}"
-        } else if (mDatas[position].status == mContext.getString(R.string.item_search_result_no_city_hint)) {
-            mBinding!!.city = mContext.getString(R.string.item_search_no_result_hint)
+        val s = mDatas[position].name
+        val cities = s.split("\\.".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+        if (cities.size == 1) {
+            mBinding!!.city = "${cities[0]} - ${mDatas[position].province_name}"
+        } else if (cities.size == 2) {
+            mBinding!!.city = "${cities[0]} - ${cities[1]} - ${mDatas[position].province_name}"
         }
+//        if (mDatas[position].status == mContext.getString(R.string.item_search_result_ok_status)) {
+//            mBinding!!.city = "${mDatas[position].basic?.city} - ${mDatas[position].basic?.prov} - ${mDatas[position].basic?.cnty}"
+//        } else if (mDatas[position].status == mContext.getString(R.string.item_search_result_no_city_hint)) {
+//            mBinding!!.city = mContext.getString(R.string.item_search_no_result_hint)
+//        }
         return mBinding!!.root
     }
 
@@ -42,8 +50,8 @@ class ListViewAdapter(var mDatas: List<Weather>, var mContext: Context) : BaseAd
         return mDatas.size
     }
 
-    fun updateDatas(weatherList: List<Weather>) {
-        this.mDatas = weatherList
+    fun updateDatas(cityList: List<Citys>) {
+        this.mDatas = cityList
         notifyDataSetChanged()
     }
 }

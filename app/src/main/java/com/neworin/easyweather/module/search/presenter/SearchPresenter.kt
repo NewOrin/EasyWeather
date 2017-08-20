@@ -3,9 +3,11 @@ package com.neworin.easyweather.module.search.presenter
 import android.content.Context
 import android.content.SharedPreferences
 import com.alibaba.fastjson.JSON
+import com.neworin.easyweather.db.utils.DBManager
 import com.neworin.easyweather.entity.Basic
 
 import com.neworin.easyweather.entity.H5Weather
+import com.neworin.easyweather.entity.db.Citys
 import com.neworin.easyweather.module.home.model.HomeModelImpl
 import com.neworin.easyweather.module.home.model.IHomeModel
 import com.neworin.easyweather.module.home.view.ISearchView
@@ -13,6 +15,9 @@ import com.neworin.easyweather.module.search.model.SearchModel
 import com.neworin.easyweather.module.search.model.SearchModelImpl
 import com.neworin.easyweather.utils.Constant
 import com.neworin.easyweather.utils.SharedPreferenceUtil
+import com.orhanobut.logger.Logger
+import io.reactivex.Observer
+import io.reactivex.disposables.Disposable
 
 import retrofit2.Call
 import retrofit2.Callback
@@ -32,13 +37,22 @@ class SearchPresenter(private val mSearchView: ISearchView, private val mContext
     }
 
     fun searchCity(city: String) {
-        mSearchModel.searchCity(city, object : Callback<H5Weather> {
-            override fun onResponse(call: Call<H5Weather>, response: Response<H5Weather>) {
-                mSearchView.refreshData(response.body().HeWeather5)
+        val dbManager = DBManager(mContext)
+        dbManager.doQueryCity(city, object : Observer<List<Citys>> {
+            override fun onSubscribe(d: Disposable) {
+
             }
 
-            override fun onFailure(call: Call<H5Weather>, t: Throwable) {
+            override fun onNext(citys: List<Citys>) {
+//                provincesList = citys
+            }
 
+            override fun onError(e: Throwable) {
+                Logger.d("get data error")
+            }
+
+            override fun onComplete() {
+//                Logger.d("size = " + provincesList.size)
             }
         })
     }
